@@ -9,16 +9,25 @@ def parse_prompt(prompt):
     if "entering an integer" in prompt and "Full Name" in prompt:
         return {
             "action": "type",
-            "selector": "input[name='full_name']",
+            "selector": "input#username",
             "value": "123"
         }
-    elif "click login" in prompt:
+
+    elif "Password" in prompt and "integer" in prompt:
         return {
-            "action": "click",
-            "selector": "button[type='submit']"
+            "action": "type",
+            "selector": "input#password",
+            "value": "123456"
         }
 
-    return {
-        "action": "unknown",
-        "details": prompt
-    }
+    elif "click" in prompt and "login button" in prompt:
+        return {
+            "action": "click",
+            "selector": "button.radius"
+        }
+
+    else:
+        return {
+            "action": "unknown",
+            "details": prompt
+        }
