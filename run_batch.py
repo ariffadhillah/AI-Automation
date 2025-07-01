@@ -1,6 +1,5 @@
 from datetime import datetime
 from ai_parser.prompt_parser import parse_prompt
-from ai_parser.prompt_parser_smart import smart_parse_prompt
 from ai_parser.executor import execute_instruction
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -21,12 +20,14 @@ import os
 #     "Click the Login button"
 # ]
 
-# daftar prompt smart
-prompts = [
-    "Type tomsmith into the username field",
-    "Enter SuperSecretPassword! into the password field",
-    "Click the login button"
-]
+# Baca prompt dari CSV
+prompts = []
+with open("data/prompts.csv", mode="r", encoding="utf-8") as file:
+    reader = csv.DictReader(file)
+    for row in reader:
+        if row["Prompt"].strip():
+            prompts.append(row["Prompt"].strip())
+
 
 
 # Inisialisasi driver Selenium

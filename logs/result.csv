@@ -1,4 +1,4 @@
 Step,Prompt,Status,Message
-Step 1,Type tomsmith into the username field,Passed,Executed successfully
-Step 2,Enter SuperSecretPassword! into the password field,Passed,Executed successfully
-Step 3,Click the login button,Passed,Login successful
+Step 1,Enter username tomsmith into the username field,Passed,Executed successfully
+Step 2,Enter password SuperSecretPassword! into the password field,Passed,Executed successfully
+Step 3,Click the Login button,Passed,Login successful
